@@ -1,6 +1,7 @@
 package caio.caminha.NerdAPI.controllers;
 
 import caio.caminha.NerdAPI.modelsSW.*;
+import caio.caminha.NerdAPI.services.NerdService;
 import caio.caminha.NerdAPI.services.SWClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -9,15 +10,22 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
 @RestController
 @RequestMapping("/recurso/")
 public class NerdController {
     @Autowired
     private SWClient client;
 
+    @Autowired
+    private NerdService nerdService;
+
     @GetMapping("pessoas")
-    public OutputAllPeople getPessoas(){
-        return this.client.getAllPeople();
+    public List<OutputPessoa> getPessoas(){
+        return this.nerdService.getAllPeople();
     }
 
     @GetMapping("pessoas/{id}")
@@ -26,8 +34,8 @@ public class NerdController {
     }
 
     @GetMapping("filmes")
-    public OutputAllFilms getAllFilms(){
-        return this.client.getAllFilms();
+    public List<OutputFilme> getAllFilms(){
+        return  this.nerdService.getAllFilms();
     }
 
     @GetMapping("filmes/{id}")
@@ -36,8 +44,8 @@ public class NerdController {
     }
 
     @GetMapping("planetas")
-    public OutputAllPlanets getAllPlanets(){
-        return this.client.getAllPlanets();
+    public List<OutputPlaneta> getAllPlanets(){
+        return this.nerdService.getAllPlanets();
     }
 
     @GetMapping(path = "planetas/{id}")
