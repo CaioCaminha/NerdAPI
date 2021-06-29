@@ -4,7 +4,7 @@ spring:
   datasource:
     password: 4c79edea6c1fa9bdbe1f7235531ca31d6a95736d4588237d8d23a0d763a2fc02
     platform: postgres
-    url: jdbc:postgresql://postgres://hlexulgvdvtskc:4c79edea6c1fa9bdbe1f7235531ca31d6a95736d4588237d8d23a0d763a2fc02@ec2-3-224-7-166.compute-1.amazonaws.com:5432/d4pgh9f4pitvr5
+    url: jdbc:postgresql://hlexulgvdvtskc:4c79edea6c1fa9bdbe1f7235531ca31d6a95736d4588237d8d23a0d763a2fc02@ec2-3-224-7-166.compute-1.amazonaws.com:5432/d4pgh9f4pitvr5
     username: hlexulgvdvtskc
   jpa:
     database: POSTGRESQL
