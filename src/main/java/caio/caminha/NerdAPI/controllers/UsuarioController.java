@@ -44,15 +44,8 @@ public class UsuarioController {
 
     @PutMapping
     public ResponseEntity<?> editaSenha( @RequestBody @Valid InputAuth input){
-
             try {
-                Optional<Usuario> usuario = this.usuarioRepository.findByEmail(input.getEmail());
-                if(usuario.isPresent()) {
-                    usuario.get().setSenha(new BCryptPasswordEncoder().encode(input.getSenha()));
-                    Usuario usuarioEditado = this.usuarioRepository.save(usuario.get());
-                    return ResponseEntity.ok(new OutputUsuario(usuarioEditado) + " Senha alterada com sucesso!");
-                }
-                    return ResponseEntity.badRequest().body("Dados inválidos, tente novamente");
+                    return ResponseEntity.ok(this.usuarioService.editaSenha(input));
             }catch (Exception e){
                 return ResponseEntity.badRequest().body("Dados inválidos, tente novamente");
             }
