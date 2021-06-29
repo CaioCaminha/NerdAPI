@@ -16,6 +16,7 @@ import java.io.IOException;
 public class AuthenticationTokenFilter extends OncePerRequestFilter {
     private UsuarioRepository usuarioRepository;
     private TokenService tokenService;
+    private static final int POSICAO_BEARER = 7;
 
     public AuthenticationTokenFilter(UsuarioRepository repository, TokenService service){
         this.usuarioRepository = repository;
@@ -51,6 +52,6 @@ public class AuthenticationTokenFilter extends OncePerRequestFilter {
         if(token == null || token.isEmpty() || !token.startsWith("Bearer ")){
             return null;
         }
-        return token.substring(7, token.length());
+        return token.substring(POSICAO_BEARER, token.length());
     }
 }
