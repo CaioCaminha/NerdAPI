@@ -3,7 +3,6 @@ package caio.caminha.NerdAPI.services;
 import caio.caminha.NerdAPI.modelsSW.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -17,7 +16,7 @@ public class NerdService {
 
 
     public List<OutputFilme> getAllFilms(){
-        OutputAllFilms outputAllFilms = this.client.getAllFilms();
+        OutputAllFilmsClient outputAllFilms = this.client.getAllFilms();
         return  outputAllFilms.getResults()
                 .stream()
                 .map(outputFilmeClient -> new OutputFilme(outputFilmeClient))
@@ -25,7 +24,7 @@ public class NerdService {
     }
 
     public List<OutputPlaneta> getAllPlanets(){
-        OutputAllPlanets outputAllPlanets = this.client.getAllPlanets();
+        OutputAllPlanetsClient outputAllPlanets = this.client.getAllPlanets();
         return outputAllPlanets.getResults()
                 .stream()
                 .map(outputPlanetaClient -> new OutputPlaneta(outputPlanetaClient))
@@ -33,7 +32,7 @@ public class NerdService {
     }
 
     public List<OutputPessoa> getAllPeople(){
-        OutputAllPeople outputAllPeople = this.client.getAllPeople();
+        OutputAllPeopleClient outputAllPeople = this.client.getAllPeople();
         return outputAllPeople.getResults()
                 .stream()
                 .map(outputPessoaClient -> new OutputPessoa(outputPessoaClient))

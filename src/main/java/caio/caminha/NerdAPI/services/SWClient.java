@@ -12,16 +12,16 @@ public interface SWClient {
     OutputPessoaClient getPeopleById(@PathVariable("id") int id);
 
     @GetMapping("people/?format=json")
-    OutputAllPeople getAllPeople();
+    OutputAllPeopleClient getAllPeople();
 
     @GetMapping("films")
-    OutputAllFilms getAllFilms();
+    OutputAllFilmsClient getAllFilms();
 
     @GetMapping("films/{id}")
     OutputFilmeClient getFilmById(@PathVariable("id") int id);
 
     @GetMapping("planets")
-    OutputAllPlanets getAllPlanets();
+    OutputAllPlanetsClient getAllPlanets();
 
     @GetMapping("planets/{id}")
     OutputPlanetaClient getPlanetsById(@PathVariable("id") int id);

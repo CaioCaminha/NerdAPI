@@ -4,8 +4,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 import java.util.ArrayList;
+
 @Data
-public class OutputAllFilms {
+public class OutputAllPlanetsClient {
     @JsonProperty("count")
     private int count;
     @JsonProperty("next")
@@ -13,6 +14,5 @@ public class OutputAllFilms {
     @JsonProperty("previous")
     private String previous;
     @JsonProperty("results")
-    private ArrayList<OutputFilmeClient> results;
-
+    private ArrayList<OutputPlanetaClient> results;
 }

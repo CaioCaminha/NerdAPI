@@ -5,7 +5,7 @@ import lombok.Data;
 import java.util.ArrayList;
 
 @Data
-public class OutputAllPeople {
+public class OutputAllPeopleClient {
     @JsonProperty("count")
     private int count;
     @JsonProperty("next")
