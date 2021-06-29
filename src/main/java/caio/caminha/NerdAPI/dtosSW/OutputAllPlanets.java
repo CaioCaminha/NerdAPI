@@ -1,0 +1,16 @@
+package caio.caminha.NerdAPI.dtosSW;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.util.ArrayList;
+
+public class OutputAllPlanets {
+    @JsonProperty("count")
+    private int count;
+    @JsonProperty("next")
+    private String next;
+    @JsonProperty("previous")
+    private String previous;
+    @JsonProperty("results")
+    private ArrayList<OutputPlanetaClient> results;
+}

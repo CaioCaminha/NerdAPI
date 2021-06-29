@@ -1,0 +1,17 @@
+spring:
+  database:
+    driverClassName: org.postgresql.Driver
+  datasource:
+    password: caminha123
+    platform: postgres
+    url: jdbc:postgresql://localhost:5432/lojadomecanico
+    username: postgres
+  jpa:
+    database: POSTGRESQL
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: true
+    show-sql: true
