@@ -1,10 +1,11 @@
-package caio.caminha.NerdAPI.dtosSW;
+package caio.caminha.NerdAPI.modelsSW;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-
+import lombok.Data;
 import java.util.ArrayList;
 
-public class OutputAllFilms {
+@Data
+public class OutputAllPeople {
     @JsonProperty("count")
     private int count;
     @JsonProperty("next")
@@ -12,5 +13,5 @@ public class OutputAllFilms {
     @JsonProperty("previous")
     private String previous;
     @JsonProperty("results")
-    private ArrayList<OutputFilmeClient> results;
+    private ArrayList<OutputPessoaClient> results;
 }

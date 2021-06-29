@@ -3,7 +3,6 @@ package caio.caminha.NerdAPI.controllers;
 import caio.caminha.NerdAPI.dtos.InputUsuario;
 import caio.caminha.NerdAPI.models.Usuario;
 import caio.caminha.NerdAPI.repositories.UsuarioRepository;
-import caio.caminha.NerdAPI.repositories.UsuarioRepositoryTest;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;

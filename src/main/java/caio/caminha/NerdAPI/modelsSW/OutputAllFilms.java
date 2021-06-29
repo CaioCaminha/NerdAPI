@@ -1,10 +1,10 @@
-package caio.caminha.NerdAPI.dtosSW;
+package caio.caminha.NerdAPI.modelsSW;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.ArrayList;
 
-public class OutputAllPlanets {
+public class OutputAllFilms {
     @JsonProperty("count")
     private int count;
     @JsonProperty("next")
@@ -12,5 +12,5 @@ public class OutputAllPlanets {
     @JsonProperty("previous")
     private String previous;
     @JsonProperty("results")
-    private ArrayList<OutputPlanetaClient> results;
+    private ArrayList<OutputFilmeClient> results;
 }

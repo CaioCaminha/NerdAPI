@@ -1,4 +1,4 @@
-package caio.caminha.NerdAPI.dtosSW;
+package caio.caminha.NerdAPI.modelsSW;
 
 import lombok.Data;
 

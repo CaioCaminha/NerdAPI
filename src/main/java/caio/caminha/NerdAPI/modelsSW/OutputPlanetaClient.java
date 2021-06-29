@@ -1,4 +1,4 @@
-package caio.caminha.NerdAPI.dtosSW;
+package caio.caminha.NerdAPI.modelsSW;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;

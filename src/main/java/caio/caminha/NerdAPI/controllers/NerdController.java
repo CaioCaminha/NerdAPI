@@ -1,6 +1,6 @@
 package caio.caminha.NerdAPI.controllers;
 
-import caio.caminha.NerdAPI.dtosSW.*;
+import caio.caminha.NerdAPI.modelsSW.*;
 import caio.caminha.NerdAPI.services.SWClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

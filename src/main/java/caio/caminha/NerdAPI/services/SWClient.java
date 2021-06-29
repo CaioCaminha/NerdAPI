@@ -1,12 +1,9 @@
 package caio.caminha.NerdAPI.services;
 
-import caio.caminha.NerdAPI.dtosSW.*;
+import caio.caminha.NerdAPI.modelsSW.*;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @FeignClient(url = "https://swapi.dev/api/", name = "sw")
 public interface SWClient {

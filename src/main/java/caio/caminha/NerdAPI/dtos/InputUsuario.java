@@ -1,6 +1,7 @@
 package caio.caminha.NerdAPI.dtos;
 
 import caio.caminha.NerdAPI.models.Usuario;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
@@ -9,10 +10,13 @@ import javax.validation.constraints.NotNull;
 
 @Data
 public class InputUsuario {
+    @JsonProperty("nome")
     @NotNull @NotEmpty
     private String nome;
+    @JsonProperty("email")
     @NotNull @NotEmpty
     private String email;
+    @JsonProperty("senha")
     @NotNull @NotEmpty
     private String senha;
 
