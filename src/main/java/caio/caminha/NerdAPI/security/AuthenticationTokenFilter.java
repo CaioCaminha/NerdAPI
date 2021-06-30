@@ -1,7 +1,7 @@
 package caio.caminha.NerdAPI.security;
 
-import caio.caminha.NerdAPI.models.Usuario;
-import caio.caminha.NerdAPI.repositories.UsuarioRepository;
+import caio.caminha.NerdAPI.model.User;
+import caio.caminha.NerdAPI.repositories.UserRepository;
 import caio.caminha.NerdAPI.securityServices.TokenService;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -14,12 +14,12 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class AuthenticationTokenFilter extends OncePerRequestFilter {
-    private UsuarioRepository usuarioRepository;
+    private UserRepository userRepository;
     private TokenService tokenService;
-    private static final int POSICAO_BEARER = 7;
+  private static final int POSICAO_BEARER = 7;
 
-    public AuthenticationTokenFilter(UsuarioRepository repository, TokenService service){
-        this.usuarioRepository = repository;
+    public AuthenticationTokenFilter(UserRepository repository, TokenService service){
+        this.userRepository = repository;
         this.tokenService = service;
     }
 
@@ -39,7 +39,7 @@ public class AuthenticationTokenFilter extends OncePerRequestFilter {
 
     public void autenticarCliente(String token){
         Long usuarioId = this.tokenService.getUserId(token);
-        Usuario usuario = this.usuarioRepository.findById(usuarioId).get();
+        User usuario = this.userRepository.findById(usuarioId).get();
         UsernamePasswordAuthenticationToken authToken =
                 new UsernamePasswordAuthenticationToken(usuario, null, usuario.getAuthorities());
         SecurityContextHolder.getContext().setAuthentication(authToken);

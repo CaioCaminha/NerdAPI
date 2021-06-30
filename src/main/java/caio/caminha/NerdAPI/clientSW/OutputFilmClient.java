@@ -1,4 +1,4 @@
-package caio.caminha.NerdAPI.modelsSW;
+package caio.caminha.NerdAPI.clientSW;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
@@ -7,7 +7,7 @@ import java.util.Date;
 import java.util.List;
 
 @Data
-public class OutputFilmeClient {
+public class OutputFilmClient {
     @JsonProperty("title")
     private String tile;
     @JsonProperty("episode_id")

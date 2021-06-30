@@ -27,7 +27,7 @@ public class NerdControllerTest {
 
     @Test
     @DisplayName(value = "DeveRetornar200")
-    public void retornaTodosPlanetas() throws Exception{
+    public void allPlanetsTest() throws Exception{
         URI uri = new URI("/recurso/planetas");
 
         MockHttpServletRequestBuilder request = MockMvcRequestBuilders
@@ -42,7 +42,7 @@ public class NerdControllerTest {
 
     @Test
     @DisplayName(value = "DeveRetornar200")
-    public void retornaPlaneta() throws Exception{
+    public void onePlanetTest() throws Exception{
         URI uri = new URI("/recurso/planetas/1");
 
         MockHttpServletRequestBuilder request = MockMvcRequestBuilders
@@ -57,7 +57,7 @@ public class NerdControllerTest {
 
     @Test
     @DisplayName(value = "DeveRetornar200")
-    public void retornaTodosFilmes() throws Exception{
+    public void allFilmsTest() throws Exception{
         URI uri = new URI("/recurso/filmes");
 
         MockHttpServletRequestBuilder request = MockMvcRequestBuilders
@@ -72,7 +72,7 @@ public class NerdControllerTest {
 
     @Test
     @DisplayName(value = "DeveRetornar200")
-    public void retornaFilme() throws Exception{
+    public void oneFilmTest() throws Exception{
         URI uri = new URI("/recurso/filmes/1");
 
         MockHttpServletRequestBuilder request = MockMvcRequestBuilders
@@ -87,7 +87,7 @@ public class NerdControllerTest {
 
     @Test
     @DisplayName(value = "DeveRetornar200")
-    public void retornaTodasPessoas() throws Exception{
+    public void allPeopeTest() throws Exception{
         URI uri = new URI("/recurso/pessoas");
 
         MockHttpServletRequestBuilder request = MockMvcRequestBuilders
@@ -102,7 +102,7 @@ public class NerdControllerTest {
 
     @Test
     @DisplayName(value = "DeveRetornar200")
-    public void retornaPessoa() throws Exception{
+    public void onePeopleTest() throws Exception{
         URI uri = new URI("/recurso/pessoas/1");
 
         MockHttpServletRequestBuilder request = MockMvcRequestBuilders

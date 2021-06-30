@@ -1,10 +1,9 @@
 package caio.caminha.NerdAPI.services;
 
-import caio.caminha.NerdAPI.dtos.InputAuth;
-import caio.caminha.NerdAPI.dtos.InputUsuario;
-import caio.caminha.NerdAPI.dtos.OutputUsuario;
-import caio.caminha.NerdAPI.models.Usuario;
-import caio.caminha.NerdAPI.repositories.UsuarioRepository;
+import caio.caminha.NerdAPI.dtos.InputUser;
+import caio.caminha.NerdAPI.dtos.OutputUser;
+import caio.caminha.NerdAPI.model.User;
+import caio.caminha.NerdAPI.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -16,22 +15,22 @@ import java.util.Optional;
 public class UsuarioService {
 
     @Autowired
-    private UsuarioRepository usuarioRepository;
+    private UserRepository userRepository;
 
-    public OutputUsuario saveUsuario(InputUsuario input){
-        Usuario usuario = this.usuarioRepository.save(input.convert());
-        return new OutputUsuario(usuario);
+    public OutputUser saveUser(InputUser input){
+        User user = this.userRepository.save(input.convertToEntity());
+        return new OutputUser(user);
     }
 
-    public OutputUsuario editaSenha(InputAuth input){
-        Optional<Usuario> usuario = this.usuarioRepository.findByEmail(input.getEmail());
-        if(usuario.isPresent()){
-            usuario.get().setSenha(new BCryptPasswordEncoder().encode(input.getSenha()));
-            Usuario usuarioEditado = this.usuarioRepository.save(usuario.get());
-            return new OutputUsuario(usuarioEditado);
-        }else{
-            throw new UsernameNotFoundException("Usuário Inválido");
-        }
+
+    public OutputUser updatePassword(InputUser input, Long id){
+        Optional<User> user = this.userRepository.findById(id);
+            if(user.isPresent()) {
+                user.get().setSenha(new BCryptPasswordEncoder().encode(input.getSenha()));
+                return new OutputUser(this.userRepository.save(user.get()));
+            }else{
+                throw new UsernameNotFoundException("Dados inválidos");
+            }
     }
 
 

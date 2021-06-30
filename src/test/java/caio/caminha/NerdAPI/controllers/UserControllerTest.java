@@ -1,8 +1,8 @@
 package caio.caminha.NerdAPI.controllers;
 
-import caio.caminha.NerdAPI.dtos.InputUsuario;
-import caio.caminha.NerdAPI.models.Usuario;
-import caio.caminha.NerdAPI.repositories.UsuarioRepository;
+import caio.caminha.NerdAPI.dtos.InputUser;
+import caio.caminha.NerdAPI.model.User;
+import caio.caminha.NerdAPI.repositories.UserRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;
@@ -27,20 +27,20 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 @AutoConfigureMockMvc
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
-public class UsuarioControllerTest {
+public class UserControllerTest {
 
     @Autowired
     private MockMvc mvc;
 
     @Autowired
-    private UsuarioRepository usuarioRepository;
+    private UserRepository userRepository;
 
     @Test
     @DisplayName(value = "Deve retornar 400 por causa de dados inválidos")
     public void createInvalidUsuario() throws Exception{
         URI uri = new URI("/user");
 
-        InputUsuario input = new InputUsuario(null, null, null);
+        InputUser input = new InputUser(null, null, null);
         String json = new ObjectMapper().writeValueAsString(input);
         MockHttpServletRequestBuilder request = MockMvcRequestBuilders
                 .post(uri)
@@ -57,7 +57,7 @@ public class UsuarioControllerTest {
     public void createUsuario() throws Exception{
         URI uri = new URI("/user");
 
-        InputUsuario input = new InputUsuario("cainho games", "caio@gmail.com", "caminha123");
+        InputUser input = new InputUser("cainho games", "caio@gmail.com", "caminha123");
         String json = new ObjectMapper().writeValueAsString(input);
         MockHttpServletRequestBuilder request = MockMvcRequestBuilders
                 .post(uri)
@@ -69,8 +69,8 @@ public class UsuarioControllerTest {
                 .andExpect(status().isCreated())
                 .andExpect(jsonPath("id").isNotEmpty());
 
-        Optional<Usuario> usuarioCriado = this.usuarioRepository.findByEmail(input.getEmail());
-        this.usuarioRepository.deleteById(usuarioCriado.get().getId());
+        Optional<User> userCreated = this.userRepository.findByEmail(input.getEmail());
+        this.userRepository.deleteById(userCreated.get().getId());
     }
 
 

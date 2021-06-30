@@ -1,6 +1,6 @@
-package caio.caminha.NerdAPI.services;
+package caio.caminha.NerdAPI.clientSW;
 
-import caio.caminha.NerdAPI.modelsSW.*;
+import caio.caminha.NerdAPI.clientSW.*;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 public interface SWClient {
 
     @GetMapping("people/{id}/?format=json")
-    OutputPessoaClient getPeopleById(@PathVariable("id") int id);
+    OutputPeopleClient getPeopleById(@PathVariable("id") int id);
 
     @GetMapping("people/?format=json")
     OutputAllPeopleClient getAllPeople();
@@ -18,12 +18,12 @@ public interface SWClient {
     OutputAllFilmsClient getAllFilms();
 
     @GetMapping("films/{id}")
-    OutputFilmeClient getFilmById(@PathVariable("id") int id);
+    OutputFilmClient getFilmById(@PathVariable("id") int id);
 
     @GetMapping("planets")
     OutputAllPlanetsClient getAllPlanets();
 
     @GetMapping("planets/{id}")
-    OutputPlanetaClient getPlanetsById(@PathVariable("id") int id);
+    OutputPlanetClient getPlanetsById(@PathVariable("id") int id);
 
 }

@@ -1,6 +1,6 @@
 package caio.caminha.NerdAPI.repositories;
 
-import caio.caminha.NerdAPI.models.Usuario;
+import caio.caminha.NerdAPI.model.User;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;
@@ -15,19 +15,19 @@ import java.util.Optional;
 @RunWith(SpringRunner.class)
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
-public class UsuarioRepositoryTest {
+public class UserRepositoryTest {
 
     @Autowired
-    private UsuarioRepository usuarioRepository;
+    private UserRepository userRepository;
 
     @Test
     @DisplayName(value = "DeveRetornarUmOptional<Usuario>")
     public void findUsuarioByCPF(){
         String email = "caminhacaiopro@gmail.com";
-        Optional<Usuario> usuario = this.usuarioRepository.findByEmail(email);
-        Assert.assertNotNull(usuario.get());
-        Assert.assertEquals(email, usuario.get().getEmail());
-        Assert.assertTrue(usuario.isPresent());
+        Optional<User> user = this.userRepository.findByEmail(email);
+        Assert.assertNotNull(user.get());
+        Assert.assertEquals(email, user.get().getEmail());
+        Assert.assertTrue(user.isPresent());
     }
 
 }

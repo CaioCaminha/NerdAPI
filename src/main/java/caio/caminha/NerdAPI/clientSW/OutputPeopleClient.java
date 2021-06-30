@@ -1,4 +1,4 @@
-package caio.caminha.NerdAPI.modelsSW;
+package caio.caminha.NerdAPI.clientSW;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
@@ -6,7 +6,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class OutputPessoaClient {
+public class OutputPeopleClient {
     @JsonProperty("name")
     private String name;
     @JsonProperty("birth_year")

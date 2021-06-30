@@ -1,8 +1,8 @@
 package caio.caminha.NerdAPI.controllers;
 
-import caio.caminha.NerdAPI.modelsSW.*;
+import caio.caminha.NerdAPI.clientSW.*;
 import caio.caminha.NerdAPI.services.NerdService;
-import caio.caminha.NerdAPI.services.SWClient;
+import caio.caminha.NerdAPI.clientSW.SWClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,32 +22,32 @@ public class NerdController {
     private NerdService nerdService;
 
     @GetMapping("pessoas")
-    public List<OutputPessoa> getPessoas(){
+    public List<OutputPeople> getPessoas(){
         return this.nerdService.getAllPeople();
     }
 
     @GetMapping("pessoas/{id}")
-    public ResponseEntity<OutputPessoa> getPessoasById(@PathVariable("id") int id){
-        return ResponseEntity.ok(new OutputPessoa(this.client.getPeopleById(id)));
+    public ResponseEntity<OutputPeople> getPessoasById(@PathVariable("id") int id){
+        return ResponseEntity.ok(new OutputPeople(this.client.getPeopleById(id)));
     }
 
     @GetMapping("filmes")
-    public List<OutputFilme> getAllFilms(){
+    public List<OutputFilm> getAllFilms(){
         return  this.nerdService.getAllFilms();
     }
 
     @GetMapping("filmes/{id}")
-    public ResponseEntity<OutputFilme> getFilmeById(@PathVariable("id") int id){
-        return ResponseEntity.ok(new OutputFilme(this.client.getFilmById(id)));
+    public ResponseEntity<OutputFilm> getFilmeById(@PathVariable("id") int id){
+        return ResponseEntity.ok(new OutputFilm(this.client.getFilmById(id)));
     }
 
     @GetMapping("planetas")
-    public List<OutputPlaneta> getAllPlanets(){
+    public List<OutputPlanet> getAllPlanets(){
         return this.nerdService.getAllPlanets();
     }
 
     @GetMapping(path = "planetas/{id}")
-    public ResponseEntity<OutputPlaneta> getPlanetaById(@PathVariable("id") int id){
-        return ResponseEntity.ok(new OutputPlaneta(this.client.getPlanetsById(id)));
+    public ResponseEntity<OutputPlanet> getPlanetaById(@PathVariable("id") int id){
+        return ResponseEntity.ok(new OutputPlanet(this.client.getPlanetsById(id)));
     }
 }

@@ -1,6 +1,6 @@
 package caio.caminha.NerdAPI.security;
 
-import caio.caminha.NerdAPI.repositories.UsuarioRepository;
+import caio.caminha.NerdAPI.repositories.UserRepository;
 import caio.caminha.NerdAPI.securityServices.AuthenticationService;
 import caio.caminha.NerdAPI.securityServices.TokenService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +26,7 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
     @Autowired
     private TokenService tokenService;
     @Autowired
-    private UsuarioRepository usuarioRepository;
+    private UserRepository userRepository;
 
     @Override
     @Bean
@@ -51,7 +51,7 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
                 .and().cors()
                 .and().csrf().disable()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                .and().addFilterBefore(new AuthenticationTokenFilter(this.usuarioRepository, this.tokenService),
+                .and().addFilterBefore(new AuthenticationTokenFilter(this.userRepository, this.tokenService),
                 UsernamePasswordAuthenticationFilter.class);
     }
 

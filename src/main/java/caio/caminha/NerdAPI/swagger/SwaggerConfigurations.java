@@ -1,6 +1,6 @@
 package caio.caminha.NerdAPI.swagger;
 
-import caio.caminha.NerdAPI.models.Usuario;
+import caio.caminha.NerdAPI.model.User;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.PathSelectors;
@@ -11,13 +11,13 @@ import springfox.documentation.spring.web.plugins.Docket;
 @Configuration
 public class SwaggerConfigurations {
     @Bean
-    public Docket controleVeiculoApi(){
+    public Docket NerdAPI(){
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("caio.caminha.NerdAPI"))
                 .paths(PathSelectors.ant("/**"))
                 .build()
-                .ignoredParameterTypes(Usuario.class);
+                .ignoredParameterTypes(User.class);
     }
 
 }

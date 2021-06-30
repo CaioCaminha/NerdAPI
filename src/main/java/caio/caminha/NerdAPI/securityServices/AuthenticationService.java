@@ -1,7 +1,7 @@
 package caio.caminha.NerdAPI.securityServices;
 
-import caio.caminha.NerdAPI.models.Usuario;
-import caio.caminha.NerdAPI.repositories.UsuarioRepository;
+import caio.caminha.NerdAPI.model.User;
+import caio.caminha.NerdAPI.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -14,13 +14,13 @@ import java.util.Optional;
 public class AuthenticationService implements UserDetailsService {
 
     @Autowired
-    private UsuarioRepository usuarioRepository;
+    private UserRepository userRepository;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Optional<Usuario> usuario = this.usuarioRepository.findByEmail(username);
-        if(usuario.isPresent()){
-            return usuario.get();
+        Optional<User> user = this.userRepository.findByEmail(username);
+        if(user.isPresent()){
+            return user.get();
         }
         throw new UsernameNotFoundException("Username Inválido");
     }

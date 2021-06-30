@@ -1,4 +1,4 @@
-package caio.caminha.NerdAPI.models;
+package caio.caminha.NerdAPI.model;
 
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
@@ -10,7 +10,7 @@ import java.util.Collection;
 @Entity
 @Data
 @Table(name = "usuario", uniqueConstraints = {@UniqueConstraint(columnNames = {"email"})})
-public class Usuario implements UserDetails {
+public class User implements UserDetails {
 
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -18,9 +18,9 @@ public class Usuario implements UserDetails {
     private String email;
     private String senha;
 
-    public Usuario(){}
+    public User(){}
 
-    public Usuario(String nome, String email, String senha){
+    public User(String nome, String email, String senha){
         this.nome = nome;
         this.email = email;
         this.senha = senha;

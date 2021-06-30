@@ -1,8 +1,8 @@
 package caio.caminha.NerdAPI.service;
 
-import caio.caminha.NerdAPI.dtos.InputUsuario;
-import caio.caminha.NerdAPI.dtos.OutputUsuario;
-import caio.caminha.NerdAPI.repositories.UsuarioRepository;
+import caio.caminha.NerdAPI.dtos.InputUser;
+import caio.caminha.NerdAPI.dtos.OutputUser;
+import caio.caminha.NerdAPI.repositories.UserRepository;
 import caio.caminha.NerdAPI.services.UsuarioService;
 import org.junit.Assert;
 import org.junit.Test;
@@ -18,21 +18,21 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 @AutoConfigureMockMvc
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
-public class UsuarioServiceTest {
+public class UserServiceTest {
     @Autowired
     private UsuarioService usuarioService;
 
     @Autowired
-    private UsuarioRepository usuarioRepository;
+    private UserRepository userRepository;
 
     @Test
     @DisplayName(value = "DeveRetornarOutputVeiculo")
     public void createInvalidUsuarioTest() throws Exception{
-        InputUsuario input = new InputUsuario("caio", "caio@email.com", "12346578");
-        OutputUsuario usuario = this.usuarioService.saveUsuario(input);
-        Assert.assertNotNull(usuario.getId());
-        Assert.assertEquals(input.getNome(), usuario.getNome());
-        this.usuarioRepository.deleteById(usuario.getId());
+        InputUser input = new InputUser("caio", "caio@email.com", "12346578");
+        OutputUser user = this.usuarioService.saveUser(input);
+        Assert.assertNotNull(user.getId());
+        Assert.assertEquals(input.getNome(), user.getNome());
+        this.userRepository.deleteById(user.getId());
     }
 
 }

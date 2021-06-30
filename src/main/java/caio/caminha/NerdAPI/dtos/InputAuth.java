@@ -21,7 +21,7 @@ public class InputAuth {
         this.senha = senha;
     }
 
-    public UsernamePasswordAuthenticationToken convert(){
+    public UsernamePasswordAuthenticationToken convertToUserNameAuthenticationToken(){
         return new UsernamePasswordAuthenticationToken(email, senha);
     }
 }

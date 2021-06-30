@@ -1,6 +1,6 @@
 package caio.caminha.NerdAPI.securityServices;
 
-import caio.caminha.NerdAPI.models.Usuario;
+import caio.caminha.NerdAPI.model.User;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -17,14 +17,14 @@ public class TokenService {
     private static final String secret = "RT&KH%h$yjx5*c*lxMrvGA24VG5Vg&zUjQ";
 
     public String generateToken(Authentication authentication){
-        Usuario usuarioLogado = (Usuario) authentication.getPrincipal();
+        User loggedUser = (User) authentication.getPrincipal();
         Date today = new Date();
         Date expirationDate = new Date(today.getTime() + Long.parseLong(expiration));
 
 
         return Jwts.builder()
                 .setIssuer("API para avaliação Loja Do Mecanico")
-                .setSubject(usuarioLogado.getId().toString())
+                .setSubject(loggedUser.getId().toString())
                 .setIssuedAt(today)
                 .setExpiration(expirationDate)
                 .signWith(SignatureAlgorithm.HS256, secret)

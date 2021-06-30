@@ -28,7 +28,7 @@ public class AuthenticationController {
 
     @PostMapping
     public ResponseEntity<?> authenticate(@RequestBody @Valid InputAuth input){
-        UsernamePasswordAuthenticationToken dadosLogin = input.convert();
+        UsernamePasswordAuthenticationToken dadosLogin = input.convertToUserNameAuthenticationToken();
         try{
             Authentication authentication = authManager.authenticate(dadosLogin);
             String token = this.tokenService.generateToken(authentication);
