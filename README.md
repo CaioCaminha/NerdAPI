@@ -6,6 +6,7 @@ NerdAPI é uma API Rest desenvolvida com Spring. Nesta aplicação foram utiliza
 - JSON Web Token
 - Swagger 2
 - PostgreSQL
+- Feign
 ## Apresentação
 A aplicação consome um serviço externo chamado SWAPI, uma API que fornece dados acerca da saga **StarWars**, e disponibiliza dados em português dos filmes, planetas e pessoas envolvidas nos filmes.
 
@@ -24,3 +25,5 @@ Como ORM foi utilizado o `Spring Data JPA`, fazendo a comunicação com um banco
 O `Swagger` disponibiliza um endpoint `"/swagger-ui.html"`, fornecendo uma breve documentação da aplicação e a possibilidade de realizar testes dos **controllers** disponíveis.
 
 Os testes foram realizados com `MockMvc`e `JUnit5`, para testes dos **`controllers`** que requerem a realização de uma requisição e para testes unitários nos `serviços` e `Dtos`.
+
+**Vale Ressaltar** que a comunicação com a API externa SWAPI foi realizada por meio do OpenFeign, recurso fornecido pelo Spring Cloud.
